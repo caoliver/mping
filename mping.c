@@ -31,6 +31,8 @@
 #define MINWAIT 0.1
 #define MAXWAIT 15
 #define NS_PER_SEC 1000000000L
+#define DEFAULT_WAIT_SECS 2
+#define DEFAULT_PING_COUNT 2
 
 uint16_t ident;
 int sock;
@@ -123,8 +125,8 @@ int main(int argc, char *argv[])
 {
     int opt;
     ident = getpid() & 0xFFFF;
-    float wait = 2;
-    int count = 2;
+    float wait = DEFAULT_WAIT_SECS;
+    int count = DEFAULT_PING_COUNT;
     bool bad_host = false;
 
     while ((opt = getopt(argc, argv, "c:t:")) != -1)
